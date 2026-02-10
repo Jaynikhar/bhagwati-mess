@@ -22,7 +22,7 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://foodiemess.vercel.app/"
+    "https://bhagwati-mess-frontend-git-main-jay-nikhars-projects.vercel.app/"
   ]
 }));
 app.use(express.json());
