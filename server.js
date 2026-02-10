@@ -20,8 +20,11 @@ const app = express();
 
 // middlewares
 app.use(cors({
-  origin: "https://bhagwati-mess-frontend-git-main-jay-nikhars-projects.vercel.app/"
-  
+  origin: [
+    "http://localhost:5173",
+    "https://your-frontend.vercel.app"
+  ],
+  credentials: true
 }));
 
 app.use(express.json());
