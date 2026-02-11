@@ -20,7 +20,8 @@ connectDB();
 const app = express();
 
 app.use(cors({
-  origin: "https://foodiemess.vercel.app/"
+  origin: "https://foodiemess.vercel.app/",
+  credentials: true
   
 }));
 app.use(express.json());
