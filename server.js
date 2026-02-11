@@ -19,11 +19,23 @@ dotenv.config();
 const app = express();
 
 // middlewares
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://foodiemess.vercel.app"
+];
+
 app.use(cors({
-  origin: "https://foodiemess.vercel.app/",
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true); // allow Postman / mobile
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("CORS not allowed"));
+    }
+  },
   credentials: true
 }));
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
